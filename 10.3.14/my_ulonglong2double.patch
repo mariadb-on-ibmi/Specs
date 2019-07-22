@@ -1,0 +1,19 @@
+diff -rupN mariadb-10.3.14-orig/libmariadb/include/ma_global.h mariadb-10.3.14-ulonglong/libmariadb/include/ma_global.h
+--- mariadb-10.3.14-orig/libmariadb/include/ma_global.h	2019-05-20 11:59:11.210302913 -0500
++++ mariadb-10.3.14-ulonglong/libmariadb/include/ma_global.h	2019-07-17 13:14:01.764770812 -0500
+@@ -94,6 +94,7 @@
+ #define _H_STRINGS
+ #define _SYS_STREAM_H
+ #define _AIX32_CURSES
++#if 0
+ #define ulonglong2double(A) my_ulonglong2double(A)
+ #define my_off_t2double(A)  my_ulonglong2double(A)
+ #ifdef	__cplusplus
+@@ -103,6 +104,7 @@ double my_ulonglong2double(unsigned long
+ #ifdef	__cplusplus
+ }
+ #endif
++#endif
+ #endif /* _AIX */
+ 
+ #ifdef HAVE_BROKEN_SNPRINTF	/* HPUX 10.20 don't have this defined */

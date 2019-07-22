@@ -1,0 +1,16 @@
+diff -rupN mariadb-10.3.14-orig/mysys/mysys_priv.h mariadb-10.3.14/mysys/mysys_priv.h
+--- mariadb-10.3.14-orig/mysys/mysys_priv.h	2019-05-20 11:59:11.903299383 -0500
++++ mariadb-10.3.14/mysys/mysys_priv.h	2019-07-01 14:29:12.199122832 -0500
+@@ -116,6 +116,12 @@ void my_error_unregister_all(void);
+ #endif
+ #endif
+ 
++#ifdef __PASE__
++#ifdef O_PATH
++#undef O_PATH
++#endif
++#endif
++
+ #ifdef O_PATH
+ #define HAVE_OPEN_PARENT_DIR_NOSYMLINKS
+ const char *my_open_parent_dir_nosymlinks(const char *pathname, int *pdfd);

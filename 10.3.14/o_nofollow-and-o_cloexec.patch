@@ -1,0 +1,18 @@
+diff -rupN mariadb-10.3.14-orig/include/my_global.h mariadb-10.3.14/include/my_global.h
+--- mariadb-10.3.14-orig/include/my_global.h	2019-05-20 11:59:10.704305490 -0500
++++ mariadb-10.3.14/include/my_global.h	2019-07-01 12:12:45.453366669 -0500
+@@ -614,6 +614,14 @@ typedef SOCKET_SIZE_TYPE size_socket;
+ #ifndef O_CLOEXEC
+ #define O_CLOEXEC       0
+ #endif
++
++#ifdef __PASE__
++#undef O_NOFOLLOW // has issues in PASE
++#undef O_CLOEXEC
++#define O_NOFOLLOW      0
++#define O_CLOEXEC       0
++#endif
++
+ #ifdef __GLIBC__
+ #define STR_O_CLOEXEC "e"
+ #else

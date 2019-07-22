@@ -1,0 +1,13 @@
+diff -rupN mariadb-10.3.14-orig/libmariadb/plugins/pvio/pvio_socket.c mariadb-10.3.14-msg_dontwait/libmariadb/plugins/pvio/pvio_socket.c
+--- mariadb-10.3.14-orig/libmariadb/plugins/pvio/pvio_socket.c	2019-05-20 11:59:11.215302887 -0500
++++ mariadb-10.3.14-msg_dontwait/libmariadb/plugins/pvio/pvio_socket.c	2019-07-17 14:14:43.402977754 -0500
+@@ -59,6 +59,9 @@
+ #define MSG_DONTWAIT 0
+ #define IS_SOCKET_EINTR(err) 0
+ #endif
++#ifdef __PASE__
++#define MSG_DONTWAIT 0
++#endif
+ 
+ #ifndef SOCKET_ERROR
+ #define SOCKET_ERROR -1

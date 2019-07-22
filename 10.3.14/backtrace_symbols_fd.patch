@@ -1,0 +1,28 @@
+diff -rupN mariadb-10.3.14-orig/mysys/stacktrace.c mariadb-10.3.14/mysys/stacktrace.c
+--- mariadb-10.3.14-orig/mysys/stacktrace.c	2019-05-07 11:55:03.095685072 -0500
++++ mariadb-10.3.14/mysys/stacktrace.c	2019-05-07 12:05:26.150078238 -0500
+@@ -34,6 +34,10 @@
+ #include <execinfo.h>
+ #endif
+ 
++void backtrace_symbols_fd(void **buffer, int size, int fd){
++ return;
++}
++
+ #define PTR_SANE(p) ((p) && (char*)(p) >= heap_start && (char*)(p) <= heap_end)
+ 
+ static char *heap_start;
+diff -rupN mariadb-10.3.14-orig/storage/tokudb/PerconaFT/portability/toku_assert.cc mariadb-10.3.14/storage/tokudb/PerconaFT/portability/toku_assert.cc
+--- mariadb-10.3.14-orig/storage/tokudb/PerconaFT/portability/toku_assert.cc	2019-05-07 11:54:58.318735301 -0500
++++ mariadb-10.3.14/storage/tokudb/PerconaFT/portability/toku_assert.cc	2019-05-07 12:05:12.245225902 -0500
+@@ -51,6 +51,10 @@ Copyright (c) 2006, 2015, Percona and/or
+ #include <dlfcn.h>
+ #include <execinfo.h>
+ 
++void backtrace_symbols_fd(void **buffer, int size, int fd){
++ return;
++}
++
+ // These are statically allocated so that the backtrace can run without any calls to malloc()
+ #define N_POINTERS 1000
+ static void *backtrace_pointers[N_POINTERS];

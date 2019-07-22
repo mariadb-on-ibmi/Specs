@@ -1,0 +1,13 @@
+diff -rupN mariadb-10.3.14-orig/libmariadb/include/ma_global.h mariadb-10.3.14-int8/libmariadb/include/ma_global.h
+--- mariadb-10.3.14-orig/libmariadb/include/ma_global.h	2019-05-20 11:59:11.210302913 -0500
++++ mariadb-10.3.14-int8/libmariadb/include/ma_global.h	2019-07-17 12:57:43.799993846 -0500
+@@ -598,7 +598,9 @@ typedef void	*gptr;		/* Generic pointer
+ typedef char	*gptr;		/* Generic pointer */
+ #endif
+ #ifndef HAVE_INT_8_16_32
++#ifndef __PASE__
+ typedef char	int8;		/* Signed integer >= 8	bits */
++#endif
+ typedef short	int16;		/* Signed integer >= 16 bits */
+ #endif
+ #ifndef HAVE_UCHAR

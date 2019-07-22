@@ -1,0 +1,59 @@
+diff -rupN mariadb-10.3.14-orig/include/my_global.h mariadb-10.3.14/include/my_global.h
+--- mariadb-10.3.14-orig/include/my_global.h	2019-05-06 13:50:42.914889585 -0500
++++ mariadb-10.3.14/include/my_global.h	2019-05-06 13:53:05.162489631 -0500
+@@ -142,11 +142,12 @@
+ 
+ 
+ /* Workaround for _LARGE_FILES and _LARGE_FILE_API incompatibility on AIX */
++#if 0
+ #if defined(_AIX) && defined(_LARGE_FILE_API)
+ #undef _LARGE_FILE_API
+ #undef __GNUG__
+ #endif
+-
++#endif
+ /*
+   The macros below are used to allow build of Universal/fat binaries of
+   MySQL and MySQL applications under darwin. 
+@@ -305,11 +306,12 @@ C_MODE_END
+ #endif
+ 
+ /* Workaround for _LARGE_FILES and _LARGE_FILE_API incompatibility on AIX */
++#if 0
+ #if defined(_AIX) && defined(_LARGE_FILE_API)
+ #undef _LARGE_FILE_API
+ #undef __GNUG__
+ #endif
+-
++#endif
+ 
+ #ifndef stdin
+ #include <stdio.h>
+@@ -338,11 +340,12 @@ C_MODE_END
+ #endif
+ 
+ /* Workaround for _LARGE_FILES and _LARGE_FILE_API incompatibility on AIX */
++#if 0
+ #if defined(_AIX) && defined(_LARGE_FILE_API)
+ #undef _LARGE_FILE_API
+ #undef __GNUG__
+ #endif
+-
++#endif
+ 
+ #ifdef HAVE_FCNTL_H
+ #include <fcntl.h>
+@@ -1197,11 +1200,12 @@ typedef struct { const char *dli_fname,
+ #endif /* EMBEDDED_LIBRARY */
+ 
+ /* Workaround for _LARGE_FILES and _LARGE_FILE_API incompatibility on AIX */
++#if 0
+ #if defined(_AIX) && defined(_LARGE_FILE_API)
+ #undef _LARGE_FILE_API
+ #undef __GNUG__
+ #endif
+-
++#endif
+ /*
+   Provide defaults for the CPU cache line size, if it has not been detected by
+   CMake using getconf
