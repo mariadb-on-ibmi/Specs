@@ -6,7 +6,7 @@
 ```bash
 export PATH=/QOpenSys/pkgs/bin:$PATH
 
-yum install curl rpm-devel rpm-build gcc-aix gzip make-gnu tar-gnu patch-gnu coreutils-gnu git
+yum -y install curl rpm-devel rpm-build gcc-aix gzip make-gnu tar-gnu patch-gnu coreutils-gnu git curl
 
 mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SRPMS,SOURCES}
 ```
@@ -34,7 +34,7 @@ popd
 ```bash
 cp Specs/10.3.14/mariadb.spec ~/rpmbuild/SPECS
 
-cp Specs/10.3.14/*.patch ~rpmbuild/SOURCES
+cp Specs/10.3.14/*.patch ~/rpmbuild/SOURCES
 ```
 
 
