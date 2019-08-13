@@ -36,9 +36,12 @@ cp Specs/10.3.14/mariadb.spec ~/rpmbuild/SPECS
 
 cp Specs/10.3.14/*.patch ~/rpmbuild/SOURCES
 ```
+5) Get build dependencies
+```bash
+yum-builddep /HOME/QSECOFR/rpmbuild/SPECS/mariadb.spec
+```
 
-
-5) Run the build
+6) Run the build
 
 ```bash
 rpmbuild -ba ~/rpmbuild/SPECS/mariadb.spec
