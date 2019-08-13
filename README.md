@@ -6,7 +6,7 @@
 ```bash
 export PATH=/QOpenSys/pkgs/bin:$PATH
 
-yum -y install curl rpm-devel rpm-build gcc-aix gzip make-gnu tar-gnu patch-gnu coreutils-gnu git curl
+yum -y install curl rpm-devel rpm-build gcc-aix gzip make-gnu tar-gnu patch-gnu coreutils-gnu git curl gcc-cplusplus-aix
 
 mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SRPMS,SOURCES}
 ```
