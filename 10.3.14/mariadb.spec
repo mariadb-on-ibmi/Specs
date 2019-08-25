@@ -28,6 +28,7 @@ BuildRequires: libncurses6
 BuildRequires: openssl-devel
 BuildRequires: libutil-devel
 BuildRequires: libxml2-devel
+BuildRequires: libstdcplusplus-devel
 
 %description
 MariaDB is an enhanced, drop-in replacement for MySQL. MariaDB is used because it is fast, scalable and robust, with a rich ecosystem of storage engines, plugins and many other tools make it very versatile for a wide variety of use cases.
