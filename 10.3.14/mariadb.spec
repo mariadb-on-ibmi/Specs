@@ -155,7 +155,7 @@ VERBOSE=1 %make_build
 %make_install
 
 # when not building with bench
-%if %{!?with_bench}
+%if %{with_bench} < 1
 rm -r %{buildroot}%{_datadir}/sql-bench
 %endif
 
