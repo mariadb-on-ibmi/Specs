@@ -98,10 +98,17 @@ MariaDB.
 find . -type f | xargs perl -p -i -e 's|/usr/bin/perl|%{_bindir}/perl|g;s|#!/bin/sh|#!/QOpenSys/usr/bin/sh|g'
 
 export LDFLAGS=-Wl,-brtl,-bbigtoc,-blibpath:/QOpenSys/pkgs/lib:/QOpenSys/usr/lib,-lutil
-export CFLAGS="${CFLAGS:--O2 -g -maix64}"
 
+%if %{with debug}
+# no optimaztions when creating debug build
+export CFLAGS="${CFLAGS:--gxcoff -maix64}"
+export CXXFLAGS="${CXXFLAGS:--gxcoff -maix64}"
+export FFLAGS="${FFLAGS:--gxcoff -maix64}"
+%else
+export CFLAGS="${CFLAGS:--O2 -g -maix64}"
 export CXXFLAGS="${CXXFLAGS:--O2 -g -maix64}"
 export FFLAGS="${FFLAGS:--O2 -g -maix64}"
+%endif
 
 # TODO investigate adding odbc support for connect plugin
 # might just need adding build requires of unix odbc
@@ -126,6 +133,8 @@ cmake -LAH  -DCMAKE_INSTALL_PREFIX="%{_prefix}" \
     -DINSTALL_SUPPORTFILESDIR="%{_datadir}/%{name}" \
     -DMYSQL_DATADIR="/QOpenSys/var/lib/%{name}/data" \
     -DCMAKE_CXX_COMPILER="%{_bindir}/g++" \
+    -DCMAKE_CXX_FLAGS_DEBUG= \
+    -DCMAKE_C_FLAGS_DEBUG= \
     -DCMAKE_BUILD_TYPE=%{?with_debug:Debug}%{!?with_debug:MinSizeRel} \
     -DWITH_ZLIB=system \
     -DWITH_LIBEVENT=system \
