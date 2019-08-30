@@ -22,7 +22,8 @@ Patch6: o_nofollow-and-o_cloexec.patch
 
 BuildRequires: bison
 BuildRequires: cmake
-BuildRequires: libevent-devel
+# builds without libevent-devel
+# BuildRequires: libevent-devel
 BuildRequires: zlib-devel
 BuildRequires: libncurses6
 BuildRequires: openssl-devel
