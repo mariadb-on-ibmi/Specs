@@ -115,6 +115,7 @@ export FFLAGS="${FFLAGS:--O2 -g -maix64}"
 # might just need adding build requires of unix odbc
 
 cmake -LAH  -DCMAKE_INSTALL_PREFIX="%{_prefix}" \
+    -DCMAKE_SYSTEM_PREFIX_PATH="/QOpenSys/pkgs;/QOpenSys/usr" \
     -DINSTALL_LIBDIR="%{_libdir}" \
     -DINSTALL_INCLUDEDIR="include/%{name}" \
     -DINSTALL_SYSCONFDIR="%{_sysconfdir}/%{name}" \
