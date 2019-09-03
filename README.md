@@ -23,7 +23,7 @@ git clone https://github.com/mariadb-on-ibmi/Specs.git
 ```bash
 pushd ~/rpmbuild/SOURCES
 
-curl -OLk https://downloads.mariadb.org/f/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz?serve
+curl -Lk -o mariadb-10.3.14.tar.gz https://downloads.mariadb.org/interstitial/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz/from/http%3A//ftp.hosteurope.de/mirror/archive.mariadb.org/
 
 popd
 ```
